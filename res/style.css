@@ -1,0 +1,493 @@
+/* ����� */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ��� */
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.4s ease-out;
+}
+
+/* ���������� */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+/* Overlay */
+.overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ��������� */
+.title {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+}
+
+/* ����� */
+.letter {
+    position: absolute;
+    font-size: 20vw;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -10px;
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+
+
+/* ������� ���� */
+.letter-b {
+    top: 5%;
+    left: 5%;
+}
+
+.letter-a1 {
+    top: 15%;
+    right: 8%;
+}
+
+.letter-z {
+    top: 48%;
+    left: 5%;
+}
+
+.letter-a2 {
+    top: 60%;
+    right: 8%;
+}
+
+/* ������ */
+.cta-button {
+    position: relative;
+    z-index: 4;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: fadeInUp 1s ease-out 1.2s forwards; /* ���������� ����� ���� */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+
+.animate-btn {
+    animation: fadeInUp 1s ease-out 1.2s forwards; 
+}
+
+
+
+.content {
+    background: black;
+    padding: 60px 20px;
+}
+
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100%) scale(1.2);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.animate {
+    animation: fadeSlideIn 1s ease-out forwards;
+}
+
+    .animate:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .animate:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    .animate:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    .animate:nth-child(4) {
+        animation-delay: 0.8s;
+    }
+
+.scroll-anim {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    font-size: 2rem;
+    color: white;
+    animation: bounce 2s infinite;
+    z-index: 3;
+}
+
+.course-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 4;
+    position: relative;
+    text-align: center;
+    max-width: 90%;
+}
+
+.course-info span {
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+.course-info .big {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.animate-info {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: fadeInUp 1s ease-out 1s forwards; /* Задержка 1с */
+}
+
+.for-whom-section {
+    background: #000;
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+}
+
+.for-whom-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.for-whom-title span {
+    color: #d94a78; /* Розовый акцент */
+}
+
+.for-whom-box {
+    border: 1px solid #666;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.for-whom-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 420px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.icon-circle {
+    background: linear-gradient(135deg, #d94a78, #a733bb);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+
+.price-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #776082 0%, #C44B7A 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 20px 20px 60px rgba(76, 42, 64, 0.5); /* мягкая глубокая тень */
+    padding: 0; /* убрали внутренние отступы */
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+
+.price-text {
+    flex: 1;
+    min-width: 280px;
+    padding: 40px; /* Только текст имеет отступ */
+}
+
+.price-text h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.new-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.installment {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.asterisk {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+
+.preorder-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.preorder-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #ddd;
+    margin-top: 10px;
+}
+
+.price-image {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+    max-width: 50%;
+}
+
+.price-image img {
+    height: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+.footer {
+    background-color: #000;
+    color: white;
+    padding: 40px 20px 120px; /* Снизу больше отступ */
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    text-align: left;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    min-width: 250px;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем по горизонтали */
+}
+
+.footer-question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.footer-question span {
+    font-weight: normal;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 16px 24px 20px; /* Снизу больше */
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.whatsapp-button:hover {
+    background-color: red;
+    color: white;
+}
+
+.footer-socials i {
+    font-size: 24px;
+    margin: 0px 10px 20px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-socials i:hover {
+    color: red;
+}
+
+
+
+.footer-right a {
+    display: block;
+    margin-bottom: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-right a:hover {
+    text-decoration: none;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px; /* Добавим отступы между блоками */
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .footer-left {
+        order: 1;
+    }
+
+    .footer-center {
+        order: 2;
+    }
+
+    .footer-right {
+        order: 3;
+    }
+
+    .footer-socials a img {
+        margin: 0 10px;
+    }
+
+    .footer-question {
+        font-size: 16px;
+    }
+
+    .whatsapp-button {
+        padding: 14px 20px 18px;
+        font-size: 14px;
+    }
+
+    .footer-right a {
+        font-size: 13px;
+    }
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
