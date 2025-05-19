@@ -145,21 +145,20 @@ html, body {
 
 .highlight-wrapper {
   position: absolute;
-  left: 299px;
-  top: 256px;
-  z-index: 9;
-  pointer-events: none; /* prevents interaction issues */
+  left: 0;
+  top: 60px; /* Adjust as needed */
+  z-index: 10;
+  pointer-events: none;
 }
 
 .highlight-blur {
   width: 300px;
   height: 180px;
-  background-color: rgb(181, 44, 86); /* purple-pink */
+  background-color: rgb(181, 44, 86);
   filter: blur(100px);
   opacity: 1;
-  visibility: visible;
+  z-index: 0;
 }
-
 
 
 @keyframes fadeSlideIn {
@@ -247,6 +246,7 @@ html, body {
 
 .course-text {
   flex: 1 1 600px;
+  position: relative;
 }
 
 .course-text h2 {
