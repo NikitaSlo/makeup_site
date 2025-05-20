@@ -14,6 +14,7 @@
     <!-- Заставка -->
     <section class="hero">
         <img src="img/bg.jpg" alt="Фон" class="hero-image">
+        <img src="img/IMG_7392-removebg-preview(1).png" alt="Background Person" class="hero-portrait">
 
         <div class="overlay">
             <h1 class="title">
@@ -22,6 +23,18 @@
                 <span class="letter animate letter-z">З</span>
                 <span class="letter animate letter-a2">А</span>
             </h1>
+
+            <div class="hero-video">
+                <p class="video-label">СМОТРИТЕ ВИДЕО О КУРСЕ</p>
+                <button class="play-button" aria-label="Play video">
+                    <!-- SVG play icon -->
+                    <svg class="play-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white">
+                    <polygon points="22,16 50,32 22,48" />
+                    </svg>
+                </button>
+            </div>
+
+
 
             <div class="hero-info animate-info">
                 <span><strong class="big">6</strong> недель</span>
@@ -53,66 +66,82 @@
             </div>
         </div>
 
-        <div class="course-section">
-            <div class="course-wrapper">
-            <!-- Левая часть: текст и инфо-блок -->
-            <div class="course-text">
+        <div class="content-section">
+            <div class="content-wrapper">
+                <!-- Левая часть: текст и инфо-блок -->
+                <div class="content-text">
                 <h2><span class="highlight">Тихонова Анна</span></h2>
-                <p class="subheading">мастер перманентного макияжа, эксперт с 13-летним опытом в бьюти-индустрии. Судья чемпионатов, спикер и преподаватель. Помогаю мастерам выйти на новый уровень дохода. </p>
 
-                <!-- Highlight placed BEFORE info box -->
                 <div class="highlight-wrapper">
-                <div class="highlight-blur"></div>
+                    <div class="highlight-blur"></div>
                 </div>
 
-                <div class="course-info-box">
+                <div class="content-info-box">
                     <p>Моя миссия — показать, что перманент может быть эстетичным, индивидуальным и стильным.</p>
                 </div>
-            </div>
+                </div>
 
-                <!-- Правая часть: изображение -->
-                <div class="course-image">
+                <!-- Правая часть: изображение с текстом внутри -->
+                <div class="content-image">
                     <img src="img/IMG.png" alt="Promo Image">
+                    <div class="image-caption">
+                        Мастер перманентного макияжа, эксперт с 13-летним опытом в бьюти-индустрии. Судья чемпионатов, спикер и преподаватель.
+                    </div>
+
+                    <div class="highlight-wrapper">
+                        <div class="highlight-blur"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="course-section">
-            <div class="course-wrapper">
-            <!-- Левая часть: текст и инфо-блок -->
-            <div class="course-text">
+
+        <div class="content-section">
+            <div class="content-wrapper">
+                <!-- Левая часть: текст и инфо-блок -->
+                <div class="content-text">
                 <h2>Пройдя курс <span class="highlight">вы сможете</span></h2>
                 <p class="subheading">Стать профессиональным востребованным мастером.</p>
 
-                <!-- Highlight placed BEFORE info box -->
                 <div class="highlight-wrapper">
-                <div class="highlight-blur"></div>
+                    <div class="highlight-blur"></div>
                 </div>
 
-                <div class="course-info-box">
-                <div class="info-item">
+                <div class="content-info-box">
+                    <div class="info-item">
                     <div class="icon-circle">✚</div>
                     <p>Участвовать и побеждать в чемпионатах, конференциях, вечеринках, поездках.</p>
-                </div>
-                <div class="info-item">
+                    </div>
+                    <div class="info-item">
                     <div class="icon-circle">✚</div>
                     <p>Открыть свой бизнес: кабинет, студию, салон красоты.</p>
-                </div>
-                <div class="info-item">
+                    </div>
+                    <div class="info-item">
                     <div class="icon-circle">✚</div>
                     <p>Выделяться и может стать топ-экспертом: обучать, быть партнёром брендов, делиться опытом с коллегами.</p>
+                    </div>
                 </div>
                 </div>
-            </div>
 
                 <!-- Правая часть: изображение -->
-                <div class="course-image">
+                <div class="content-image">
+                    <div class="highlight-wrapper">
+                        <div class="highlight-blur"></div>
+                    </div>
                     <img src="img/pic3.png" alt="Promo Image">
                 </div>
             </div>
         </div>
 
-
+        <div class="course-video-block">
+            <p class="video-label">ВИДЕО О КУРСЕ</p>
+            <div class="video-wrapper">
+                <video controls preload="metadata" poster="img/video-poster.jpg">
+                <source src="video/course-preview.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>
 
         <div class="price-card" id="price-card">
             <div class="price-text">
@@ -123,9 +152,12 @@
                 <div class="note">* цена по предзаписи</div>
             </div>
             <div class="price-image">
-                <img src="img/IMG.png" alt="Promo Art">
+                <img src="img/pic2.png" alt="Promo Art">
             </div>
         </div>
+
+
+
     </section>
 
     <section class="footer">
