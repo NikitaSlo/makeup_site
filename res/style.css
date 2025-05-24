@@ -13,6 +13,9 @@ html, body {
     scroll-behavior: smooth;
 }
 
+
+
+
 /* Hero */
 .hero {
     position: relative;
@@ -38,7 +41,7 @@ html, body {
   max-height: 90vh;
   max-width: 90vw;
   object-fit: contain;
-  z-index: 1;
+  z-index: 5;
   pointer-events: none;
   opacity: 1;
 
@@ -47,8 +50,6 @@ html, body {
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0));
 }
 
-
-/* ���������� */
 .hero::before {
     content: "";
     position: absolute;
@@ -61,58 +62,40 @@ html, body {
 /* Overlay */
 .overlay {
     position: relative;
-    z-index: 2;
+    z-index: 6;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    justify-content: flex-end;
 }
 
-/* ��������� */
 .title {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    z-index: 3;
+  position: absolute; /* make it layer-aware */
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; /* must be > .hero::before z-index (which is 1) */
+  display: flex;
+  justify-content: center;
+  gap: 20vw;
+  
 }
 
-/* ����� */
+
 .letter {
-    position: absolute;
-    font-size: 20vw;
-    font-weight: bold;
-    line-height: 1;
-    letter-spacing: -10px;
-    opacity: 0;
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  position: relative;        /* no longer absolute */
+  font-size: 20vw;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: -10px;
+  opacity: 1;                /* show by default */
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 
-
-/* ������� ���� */
-.letter-b {
-    top: 5%;
-    left: 5%;
-}
-
-.letter-a1 {
-    top: 15%;
-    right: 8%;
-}
-
-.letter-z {
-    top: 48%;
-    left: 5%;
-}
-
-.letter-a2 {
-    top: 60%;
-    right: 8%;
-}
-
-/* ������ */
 .cta-button {
     position: relative;
     z-index: 4;
@@ -301,7 +284,7 @@ html, body {
 .content-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 60px 0px;
   position: relative;
   color: #fff;
 }
@@ -320,7 +303,7 @@ html, body {
 
 .content-text h2 {
   font-size: 36px;
-  margin-bottom: 40px;
+  margin: 20px 0px;
 }
 
 .content-text .highlight {
@@ -347,18 +330,7 @@ html, body {
   z-index: 2;
 }
 
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 20px;
-}
 
-.info-item p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.4;
-}
 
 .content-image {
   position: relative;
@@ -380,7 +352,7 @@ html, body {
   bottom: 10px;
   left: 10px;
   right: 10px;
-  color: #9c9c9c; /* Gray text */
+  color: #ffffff; /* Gray text */
   background: transparent; /* No background */
   padding: 10px 15px;
   font-size: 14px;
@@ -389,6 +361,18 @@ html, body {
   z-index: 2;
 }
 
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
 .animate-info {
     opacity: 0;
     transform: translateY(100%);
@@ -440,13 +424,15 @@ html, body {
     height: 22px;
     border-radius: 50%;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-top: 4px;
+    line-height: 1; /* prevents vertical misalignment */
+    text-align: center;
 }
+
 
 
 .course-section {
@@ -477,7 +463,7 @@ html, body {
 
 
 .course-video-block {
-  margin: 80px;
+  margin: 80px 0px 120px;
   text-align: center;
   z-index: 2;
   position: relative;
@@ -508,26 +494,24 @@ html, body {
   background: black;
 }
 
-
-
 .price-card {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    min-height: 300px; /* Minimum height for the card */
     background: linear-gradient(90deg, #ff1f0f 0%, #800000 100%);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 20px 20px 60px rgba(76, 42, 42, 0.5); /* мягкая глубокая тень */
-    padding: 0; /* убрали внутренние отступы */
+    box-shadow: 20px 20px 60px rgba(76, 42, 42, 0.5);
     max-width: 960px;
     margin: 0 auto;
 }
 
 
 .price-text {
-    flex: 1;
-    min-width: 280px;
-    padding: 40px; /* Только текст имеет отступ */
+    padding: 40px;
+    width: 50%; /* Take half width */
+    position: relative;
+    z-index: 2;
 }
 
 .price-text h2 {
@@ -553,15 +537,22 @@ html, body {
 }
 
 .preorder-button {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;       /* updated */
+  align-items: center;        /* vertical center */
+  justify-content: center;    /* horizontal center */
+  text-align: center;
+  line-height: 1.2;           /* prevents weird text spacing */
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+
 
 .preorder-button:hover {
     background-color: white;
@@ -575,20 +566,26 @@ html, body {
 }
 
 .price-image {
-    flex-shrink: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%; /* Take full height of parent */
+    width: auto; /* Width will adjust proportionally */
+    max-width: 50%; /* Maximum half of card width */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: 100%;
-    max-width: 50%;
+    align-items: flex-end; /* Align to bottom */
+    justify-content: flex-end; /* Align to right */
 }
 
 .price-image img {
-    height: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    border-radius: 0;
+    height: 100%; /* Scale with container height */
+    width: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Never exceed container */
+    object-fit: contain; /* Maintain proportions */
+    object-position: bottom right; /* Anchor to bottom-right */
 }
+
+
 
 .footer {
     background-color: #000;
@@ -630,15 +627,20 @@ html, body {
 }
 
 .whatsapp-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     color: black;
-    padding: 16px 24px 20px; /* Снизу больше */
+    padding: 13px 21px;
     font-weight: bold;
     text-decoration: none;
     border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
+    line-height: 1;
+    font-size: small;
 }
+
 
 .whatsapp-button:hover {
     background-color: red;
@@ -671,7 +673,89 @@ html, body {
     color: #ccc;
 }
 
+.mobile {
+  display: none;
+}
+
+.mobile-image {
+  display: none;
+  vertical-align: middle;
+  height: 40px;
+}
+
+
 @media (max-width: 768px) {
+    .price-text {
+        width: 100%;             /* Take full width */
+        padding: 20px;           /* Optional: reduce padding on mobile */
+    }
+
+    .title {
+        left: 53%;
+        gap: 30vw;
+    }
+
+    .price-image{
+        max-width: 38%;
+    }
+
+    .price-image img {
+        left: 120%;
+        position: relative;
+    }
+
+    .course-info{
+        margin: 100px 0 100px 0;
+    }
+
+    .content-section.course-info .right-side {
+        position: absolute;
+        left: 43%;  /* Move image more to the left */
+        right: auto; /* Override any right positioning */
+        top: 24%;   /* Maintain vertical positioning */
+        z-index: 1;
+    }
+
+    .content-text .highlight {
+        padding: 0px 180px 0px 0px;
+    }
+
+    .right-side {
+        position: absolute;
+        right: -15px;
+        top: 35%;
+        transform: translateY(-50%);
+    }
+    .left-side {
+        padding-right: 60px; /* Prevents text overlap */
+    }
+
+    .content-image {
+        display: none;
+    }
+    .content-section {
+        padding: 0px 0px 120px;
+    }
+
+    .mobile {
+        display: block !important;
+    }
+
+    .subheading.mobile {
+        display: flex !important;
+        align-items: center;
+        gap: 10px;
+        position: relative;  /* Enable z-index */
+        z-index: 3;         /* Higher than the right-side image (z-index: 1) */
+        margin-top: 20px;
+        padding: 0 100px 0 0;
+    }
+
+    .mobile-image {
+        min-height: 400px !important; /* Forces minimum height */
+        object-fit: contain;        /* Prevents distortion */
+    }
+
     .footer-container {
         flex-direction: column;
         align-items: center;
