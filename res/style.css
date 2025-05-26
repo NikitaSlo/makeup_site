@@ -585,6 +585,270 @@ html, body {
     object-position: bottom right; /* Anchor to bottom-right */
 }
 
+.why-section .info-item {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.why-section .info-item.active {
+  display: flex;
+}
+
+
+.why-section .content-image,
+.left-side {
+  position: relative;
+  overflow: hidden;
+}
+
+.why-section .content-image::before,
+.left-side::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20%; /* Adjust as needed */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 10;
+  pointer-events: none;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.carousel-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.carousel-nav button {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.carousel-nav button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.gallery-section {
+  background: black;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.gallery-subtitle {
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.image-gallery {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-sizer {
+  width: 24%; /* defines column width for masonry */
+}
+
+.gallery-item {
+  width: 25%;
+  margin-bottom: 10px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+
+.video-gallery {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.video-subtitle {
+  font-size: 14px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.video-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.video-column {
+  flex: 1 1 30%;
+  max-width: 30%;
+}
+
+.video-column video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Nav buttons below the videos */
+.video-nav-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.video-nav-row button {
+  font-size: 24px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.video-nav-row button:hover {
+  background: #ddd;
+}
+
+.modules {
+  margin: 0px 40px;
+  padding: 40px 0px 0px 0px;
+}
+
+.dropdown-module {
+  border-top: 1px solid #444;
+  padding: 20px 0;
+}
+
+.dropdown-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dropdown-label .label-text {
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.dropdown-label .icon {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.dropdown-module.open .dropdown-label .label-text,
+.dropdown-module.open .dropdown-label .icon {
+  color: #f04; /* red */
+}
+
+.dropdown-module.open .dropdown-label .icon {
+  transform: rotate(135deg);
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  margin: 0px 60px;
+  line-height: 24px;
+}
+
+.dropdown-content p {
+  font-weight: bold;
+}
+
+
+.dropdown-content ul {
+  padding-left: 25px;
+}
+
+.dropdown-module.open .dropdown-content {
+  display: block;
+  margin: 30px 60px
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.preorder-section {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0px 20px;
+  line-height: 20px;
+}
+
+.preorder-subtitle {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.preorder-info {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.preorder-info strong {
+  font-weight: bold;
+}
+
+.preorder-section .cta-button{
+  margin: 0px 0px;
+}
+
+.preorder-btn:hover {
+  background-color: red;
+  color: #fff;
+}
 
 
 .footer {
@@ -685,6 +949,44 @@ html, body {
 
 
 @media (max-width: 768px) {
+  .video-grid {
+    align-items: center;
+  }
+
+  .video-column {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .video-column video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+  }
+
+  .video-nav-row {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+    .gallery-item {
+        width: 50%;
+        margin-bottom: 10px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .grid-sizer {
+        width: 48%; /* defines column width for masonry */
+    }
+
+    .why-section .left-side {
+        padding-right: 140px;
+        z-index: 10;
+    }
+    .why-section .info-box {
+        background: rgba(1, 1, 1, 1);
+    }
     .price-text {
         width: 100%;             /* Take full width */
         padding: 20px;           /* Optional: reduce padding on mobile */
