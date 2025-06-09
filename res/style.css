@@ -1,4 +1,4 @@
-/* ����� */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@100..900&display=swap');/* ����� */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,13 @@
 
 html, body {
     height: 100%;
-    font-family: Arial, sans-serif;
     background: #000;
     color: white;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  font-family: "Roboto Slab", serif;  font-optical-sizing: auto;
+
 }
-
-
 
 
 /* Hero */
@@ -284,7 +284,7 @@ html, body {
 .content-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 0px;
+  padding: 30px 0px;
   position: relative;
   color: #fff;
 }
@@ -358,7 +358,17 @@ html, body {
   font-size: 14px;
   line-height: 1.4;
   text-align: right; /* Align text to the right */
-  z-index: 2;
+  z-index: 5;
+}
+
+.image-caption .quote-icon {
+  position: absolute;
+  top: -35%;
+  right: 0;
+  font-size: 24px;
+  color: #ffffff;
+  z-index: 4;
+  padding: 5px;
 }
 
 .info-item {
@@ -438,7 +448,6 @@ html, body {
 .course-section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 0px;
   color: #fff;
   text-align: left;
 }
@@ -463,7 +472,6 @@ html, body {
 
 
 .course-video-block {
-  margin: 80px 0px 120px;
   text-align: center;
   z-index: 2;
   position: relative;
@@ -585,6 +593,11 @@ html, body {
     object-position: bottom right; /* Anchor to bottom-right */
 }
 
+.why-section .highlight-wrapper {
+  top: -5%;
+  left: 50%;
+}
+
 .why-section .info-item {
   display: none;
   flex-direction: column;
@@ -600,11 +613,9 @@ html, body {
 .why-section .content-image,
 .left-side {
   position: relative;
-  overflow: hidden;
 }
 
-.why-section .content-image::before,
-.left-side::before {
+.why-section .content-image::before{
   content: "";
   position: absolute;
   bottom: 0;
@@ -615,6 +626,23 @@ html, body {
   z-index: 10;
   pointer-events: none;
 }
+
+.image {
+  z-index: 5;
+}
+
+.who .image::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20%; /* Adjust as needed */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 3;
+  pointer-events: none;
+}
+
 
 .carousel-wrapper {
   display: flex;
@@ -650,7 +678,6 @@ html, body {
 .gallery-section {
   background: black;
   color: white;
-  padding: 40px 20px;
   text-align: center;
 }
 
@@ -702,14 +729,14 @@ html, body {
 
 .video-grid {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  align-items: flex-start;
 }
 
 .video-column {
-  flex: 1 1 30%;
-  max-width: 30%;
+  flex: 1 1 calc(33.333% - 20px); /* 3 per row with spacing */
+  max-width: calc(33.333% - 20px);
 }
 
 .video-column video {
@@ -730,23 +757,25 @@ html, body {
 }
 
 .video-nav-row button {
-  font-size: 24px;
-  padding: 10px 14px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: #fff;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: white;
-  color: black;
-  border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
 }
 
 .video-nav-row button:hover {
-  background: #ddd;
+  background: rgba(255,255,255,0.2);
 }
 
 .modules {
   margin: 0px 40px;
-  padding: 40px 0px 0px 0px;
 }
 
 .dropdown-module {
@@ -766,6 +795,7 @@ html, body {
   font-weight: bold;
   font-size: 18px;
   transition: color 0.3s;
+  font-weight: normal;
 }
 
 .dropdown-label .icon {
@@ -821,8 +851,6 @@ html, body {
   background-color: #000;
   color: #fff;
   text-align: center;
-  padding: 0px 20px;
-  line-height: 20px;
 }
 
 .preorder-subtitle {
@@ -948,14 +976,144 @@ html, body {
 }
 
 
+.reviews .review-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.reviews .review-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.reviews .review-video {
+  flex: 0 0 280px;
+  max-width: 280px;
+  z-index: 3;
+}
+
+.reviews .review-video video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.reviews .review-caption {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  font-size: 18px;
+  color: #fff;
+  text-align: left;
+  z-index: 3;
+}
+
+.reviews .three-videos {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.reviews .three-videos .video-item {
+  flex: 1 1 180px;
+  max-width: 200px;
+  text-align: center;
+}
+
+
+.reviews .three-videos .video-item video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.reviews .caption-below {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.review-row .highlight-wrapper {
+  left: 50%;
+  top: 22%;
+  z-index: 0;
+}
+
+.reverse .highlight-wrapper {
+  top: 54%;
+  left: 8%;
+  z-index: 0;
+}
+
+
 @media (max-width: 768px) {
+  .carousel-wrapper {
+  padding: 0px 60px 0px 0px;
+}
+  .for-whom-section {
+    background: #000;
+    text-align: center;
+    color: white;
+    padding: 0px 0px 110px 0px;
+}
+  .dropdown-module.open .dropdown-content {
+  display: block;
+  margin: 30px 0px;
+}
+
+  .modules {
+    margin: 0px 0px;
+  }
+
+  .video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: black;
+  margin: auto auto 40px;
+}
+
+.reviews .three-videos {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.reviews .three-videos .video-item {
+  flex: 0 0 auto;
+  width: 180px;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+  .reviews .review-row {
+    margin-bottom: 90px;
+  }
+
   .video-grid {
     align-items: center;
   }
 
   .video-column {
-    max-width: 100%;
-    width: 100%;
+      flex: 1 1 calc(50% - 10px); /* 2 per row */
+      max-width: calc(50% - 10px);
+    }
+
+    .video-column:nth-child(3) {
+    display: none;
   }
 
   .video-column video {
@@ -968,6 +1126,10 @@ html, body {
     justify-content: center;
     margin-top: 20px;
   }
+
+  .video-gallery {
+  padding: 40px 0px;
+}
 
     .gallery-item {
         width: 50%;
@@ -984,9 +1146,7 @@ html, body {
         padding-right: 140px;
         z-index: 10;
     }
-    .why-section .info-box {
-        background: rgba(1, 1, 1, 1);
-    }
+
     .price-text {
         width: 100%;             /* Take full width */
         padding: 20px;           /* Optional: reduce padding on mobile */
@@ -998,7 +1158,7 @@ html, body {
     }
 
     .price-image{
-        max-width: 38%;
+        max-width: 17%;
     }
 
     .price-image img {
@@ -1028,6 +1188,17 @@ html, body {
         top: 35%;
         transform: translateY(-50%);
     }
+      .right-side::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%; /* Adjust as needed */
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: 10;
+    pointer-events: none;
+  }
     .left-side {
         padding-right: 60px; /* Prevents text overlap */
     }
@@ -1056,6 +1227,8 @@ html, body {
     .mobile-image {
         min-height: 400px !important; /* Forces minimum height */
         object-fit: contain;        /* Prevents distortion */
+        margin: 0px 20px 0px -10px;
+
     }
 
     .footer-container {
@@ -1111,4 +1284,19 @@ html, body {
     50% {
         transform: translateY(10px);
     }
+}
+
+.section-title {
+  background-color: #000; 
+  color: #fff;            
+  text-align: center;
+  padding: 0px 20px 20px 20px;     
+}
+
+.section-title h2 {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
+  font-family: 'Georgia', serif; /* or your chosen serif font */
 }

@@ -25,19 +25,12 @@ window.addEventListener('scroll', () => {
 
 // Плавный скролл к прайс-карте по клику на кнопку
 document.querySelectorAll('.cta-button').forEach(button => {
-  button.addEventListener('click', () => {
-    const target = document.querySelector('#price-card');
-    if (target) {
-      const targetY = target.getBoundingClientRect().top + window.scrollY;
-      const offset = target.offsetHeight / 2;
-      const centerY = targetY - (window.innerHeight / 2) + offset;
-
-      window.scrollTo({
-        top: centerY,
-        behavior: 'smooth'
-      });
-    }
-  });
+    button.addEventListener('click', () => {
+        const target = document.querySelector('#price-card');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
 });
 
 
@@ -172,4 +165,11 @@ document.querySelectorAll('.dropdown-label').forEach(label => {
       module.classList.add('open');
     }
   });
+});
+
+document.querySelector('.play-button').addEventListener('click', () => {
+    const target = document.querySelector('#course-video-block');
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 });
